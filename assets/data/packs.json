@@ -1,0 +1,22 @@
+{
+  "packs": [
+    {
+      "id": "farm",
+      "included": true,
+      "pairs": [
+        {"id": "cow", "emoji": "🐄", "es": "Vaca", "en": "Cow"},
+        {"id": "chicken", "emoji": "🐔", "es": "Pollo", "en": "Chicken"},
+        {"id": "dog", "emoji": "🐕", "es": "Perro", "en": "Dog"},
+        {"id": "cat", "emoji": "🐈", "es": "Gato", "en": "Cat"},
+        {"id": "pig", "emoji": "🐖", "es": "Cerdo", "en": "Pig"},
+        {"id": "horse", "emoji": "🐎", "es": "Caballo", "en": "Horse"},
+        {"id": "sheep", "emoji": "🐑", "es": "Borrego", "en": "Sheep"},
+        {"id": "duck", "emoji": "🦆", "es": "Pato", "en": "Duck"},
+        {"id": "rabbit", "emoji": "🐇", "es": "Conejo", "en": "Rabbit"},
+        {"id": "donkey", "emoji": "🫏", "es": "Burro", "en": "Donkey"},
+        {"id": "rooster", "emoji": "🐓", "es": "Gallo", "en": "Rooster"},
+        {"id": "mouse", "emoji": "🐁", "es": "Ratón", "en": "Mouse"}
+      ]
+    }
+  ]
+}
