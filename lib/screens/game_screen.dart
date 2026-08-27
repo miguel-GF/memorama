@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:memo_granja/app/app_theme.dart';
@@ -9,9 +10,10 @@ import 'package:memo_granja/screens/celebration_overlay.dart';
 import 'package:memo_granja/widgets/memory_card_tile.dart';
 
 class GameScreen extends StatefulWidget {
-  const GameScreen({required this.pairs, super.key});
+  const GameScreen({required this.pairs, this.random, super.key});
 
   final List<CardPair> pairs;
+  final Random? random;
 
   @override
   State<GameScreen> createState() => _GameScreenState();
@@ -23,7 +25,8 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void initState() {
     super.initState();
-    _game = GameController(pairs: widget.pairs)..addListener(_refresh);
+    _game = GameController(pairs: widget.pairs, random: widget.random)
+      ..addListener(_refresh);
   }
 
   @override
