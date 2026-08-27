@@ -33,7 +33,7 @@ no elijas silenciosamente el texto que facilite el cambio.
 | Área | Estado |
 |---|---|
 | Catálogo Granja | Prototipo con 12 pares y emoji |
-| Núcleo de juego | Máquina pura + controller; falta ciclo de vida en dispositivo |
+| Núcleo de juego | Máquina pura + controller + pruebas widget; falta ciclo de vida en dispositivo |
 | Animación/celebración | Prototipo visual |
 | Sistema visual/sensorial | Tokens y movimiento reducido iniciales; falta validación |
 | Audio | Pendiente |

@@ -18,8 +18,9 @@ actualizaciones de la aplicación.
 - Barajado, máximo de dos cartas abiertas y bloqueo durante la comparación.
 - Animación de volteo, parejas atenuadas y celebración bilingüe automática.
 - Máquina de fases independiente de Flutter y controller observable para la UI.
+- Bloqueo de taps rápidos/tercera carta y reintento ante errores del catálogo.
 - Tokens visuales semánticos y alternativa inicial de movimiento reducido.
-- Pruebas de las reglas de juego y de la integridad del catálogo.
+- Pruebas de reglas, taps, dispose durante comparación, navegación y catálogo.
 
 ## Qué no funciona todavía
 

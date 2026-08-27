@@ -75,10 +75,12 @@ contraste, semántica y ausencia de caminos accidentales hacia contenido adulto.
 
 ## Errores y ciclo de vida
 
-Actualmente, un error al cargar el catálogo presenta un mensaje genérico. Antes
-de release se necesitan estados recuperables y pruebas de pausa/reanudación. Los
-timers y listeners de widgets deben cancelarse al desmontar, y todo uso de
-`BuildContext` tras `await` debe comprobar `mounted`.
+Un error al cargar o validar el catálogo presenta un mensaje genérico con acción
+de reintento; los detalles técnicos no llegan a la UI infantil. Ya existe una
+prueba de dispose durante la comparación, pero antes de release se necesitan
+pruebas de pausa/reanudación en dispositivo. Los timers y listeners de widgets
+deben cancelarse al desmontar, y todo uso de `BuildContext` tras `await` debe
+comprobar `mounted`.
 
 ## Evolución prevista
 

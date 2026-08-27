@@ -27,7 +27,7 @@ pero no debe fingir que sustitutos temporales son una versión publicable.
 |---|---|---|
 | Flutter/Dart | FVM fijado en 3.44.8; checks locales aprobados | Mantener `.fvmrc` y fijar CI |
 | Android | Generado con `com.memogranja.memo_granja` | Validar ejecución en dispositivo |
-| Dominio | Motor Dart puro y controller observable | Probar ciclo de vida en dispositivo |
+| Dominio | Motor Dart puro, controller observable y tests de taps/dispose | Probar ciclo de vida en dispositivo |
 | UI | Tokens y movimiento reducido iniciales | Completar adaptación y validación sensorial |
 | Catálogo | 12 conceptos, emoji temporal | Añadir contrato de assets finales |
 | Audio | Ausente | Aprobar voces y hacer spike de latencia |
@@ -236,7 +236,7 @@ observación infantil en nombre del propietario.
 ## Próximas cinco tareas concretas
 
 1. Ejecutar el APK debug en un teléfono Android físico y cerrar el gate A.
-2. Añadir pruebas widget de doble tap, dispose durante delay y navegación.
-3. Hacer recuperable el error de catálogo con una acción de reintento.
-4. Completar la validación sensorial en teléfono pequeño, tableta y escalado.
-5. Preparar el contrato de assets/audio sin sustituir los placeholders licenciados.
+2. Probar pausa/reanudación y salida a mitad de partida en dispositivo.
+3. Completar la validación sensorial en teléfono pequeño, tableta y escalado.
+4. Preparar el contrato de assets/audio sin sustituir los placeholders licenciados.
+5. Sustituir los placeholders solo cuando exista procedencia y licencia registrada.
