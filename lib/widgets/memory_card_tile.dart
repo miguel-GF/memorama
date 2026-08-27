@@ -33,10 +33,7 @@ class MemoryCardTile extends StatelessWidget {
                 ),
               )
             : TweenAnimationBuilder<double>(
-                tween: Tween(
-                  begin: isHidden ? 1 : 0,
-                  end: isHidden ? 1 : 0,
-                ),
+                tween: Tween(begin: isHidden ? 1 : 0, end: isHidden ? 1 : 0),
                 duration: AppMotion.cardFlip,
                 curve: Curves.easeInOut,
                 builder: (context, turn, child) {
@@ -97,7 +94,10 @@ class _CardFace extends StatelessWidget {
         side: const BorderSide(color: AppColors.outline),
       ),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(onTap: onTap, child: Center(child: content)),
+      child: InkWell(
+        onTap: onTap,
+        child: Center(child: content),
+      ),
     );
   }
 }

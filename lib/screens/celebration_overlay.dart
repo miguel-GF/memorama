@@ -97,8 +97,10 @@ class _LanguageBubble extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 name,
-                style:
-                    const TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+                style: const TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ],
           ),

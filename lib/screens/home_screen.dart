@@ -37,8 +37,10 @@ class HomeScreen extends StatelessWidget {
                     icon: const Icon(Icons.play_arrow_rounded, size: 48),
                     label: const Text(
                       'JUGAR',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
