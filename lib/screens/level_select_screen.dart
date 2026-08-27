@@ -4,7 +4,8 @@ import 'package:memo_granja/repositories/pack_repository.dart';
 import 'package:memo_granja/screens/game_screen.dart';
 
 class LevelSelectScreen extends StatelessWidget {
-  const LevelSelectScreen({super.key, this.repository = const PackRepository()});
+  const LevelSelectScreen(
+      {super.key, this.repository = const PackRepository()});
 
   final PackRepository repository;
 

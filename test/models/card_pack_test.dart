@@ -18,8 +18,7 @@ void main() {
     expect(farm.pairs.map((pair) => pair.id).toSet(), hasLength(12));
     expect(
       farm.pairs.every(
-        (pair) =>
-            pair.spanishName.isNotEmpty && pair.englishName.isNotEmpty,
+        (pair) => pair.spanishName.isNotEmpty && pair.englishName.isNotEmpty,
       ),
       isTrue,
     );
