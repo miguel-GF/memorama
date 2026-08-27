@@ -11,6 +11,7 @@
 | [`design-system.md`](design-system.md) | Paleta y reglas sensoriales/accesibles | Vigente |
 | [`avatar-system.md`](avatar-system.md) | Avatar por capas, color y accesorio | Vigente |
 | [`offline-and-backup.md`](offline-and-backup.md) | Datos locales y decisión de backup | Vigente |
+| [`purchases-and-backup.md`](purchases-and-backup.md) | Compra única, paquetes y respaldo local | Vigente |
 | [`toolchain.md`](toolchain.md) | Versiones verificadas y cómo fijarlas | Vigente |
 | [`analisis-plan-desarrollo.md`](analisis-plan-desarrollo.md) | Revisión y ruta crítica del plan | Referencia |
 | [`analisis-tecnico-v0.1.md`](analisis-tecnico-v0.1.md) | Riesgos y decisiones de arquitectura/IAP | Referencia |
@@ -38,9 +39,9 @@ no elijas silenciosamente el texto que facilite el cambio.
 | Sistema visual/sensorial | Tokens y movimiento reducido iniciales; falta validación |
 | Audio | Pendiente |
 | Avatar global | Especificado; implementación pendiente |
-| Perfiles/progreso | Pendiente |
-| Gate parental/IAP | Pendiente |
-| Backup | Desactivado recomendado para v1; decisión pendiente |
+| Perfiles/progreso | Progreso de niveles local; perfiles pendientes |
+| Gate parental/IAP | Gate y servicio de compra única implementados; Play pendiente |
+| Backup | Exportación/restauración local de progreso; Auto Backup desactivado |
 | Android generado | Generado; falta validar en un dispositivo Android |
 | Amazon | Fuera del alcance actual |
 

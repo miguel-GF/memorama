@@ -16,9 +16,9 @@ backup sea instantáneo.
 | Datos | Fuente de verdad | Backup recomendado |
 |---|---|---|
 | Catálogo/arte/audio | Bundle de la app | No; se reinstala/actualiza |
-| Preferencias | Local | Opcional futuro |
-| Perfiles cosméticos | Local | Opcional futuro |
-| Estrellas/progreso | Local | Opcional futuro |
+| Preferencias | Local | No incluido en el backup actual |
+| Perfiles cosméticos | Local | Pendiente de perfiles |
+| Progreso de niveles | Local | JSON manual implementado |
 | Partida en curso | Memoria/local temporal | No en v1 |
 | Productos comprados | Tienda | No; restaurar desde tienda |
 | Cache de entitlements | Local derivado | No |
@@ -51,11 +51,15 @@ Referencia oficial que debe revalidarse al implementar:
 - No ofrece paridad en Amazon Fire.
 - Reglas incorrectas pueden copiar cache, tokens o datos no deseados.
 
-## Decisión propuesta
+## Decisión vigente
 
-**v1: backup cloud desactivado.** Es coherente con la promesa estricta, reduce
-superficie de privacidad y permite lanzar sin comportamiento distinto entre
-Google y Amazon.
+**v1: backup cloud desactivado y backup JSON manual de progreso.** Es coherente
+con la promesa estricta, reduce superficie de privacidad y permite restaurar lo
+que ya se guarda localmente sin crear una cuenta.
+
+La exportación e importación viven en `LocalBackupService` y están protegidas por
+la zona adulta. El JSON no cifra el contenido, no incluye entitlements ni tokens
+de compra, y se valida completo antes de escribir.
 
 **v1.x opcional:** evaluar Auto Backup solo para progreso, preferencias y avatar,
 tras decisión explícita del propietario y actualización de textos de privacidad.
@@ -79,5 +83,5 @@ No integrar Google Drive API ni Google Sign-In.
   distinta para Fire; complejidad injustificada.
 - **Backend propio:** contradice la arquitectura y aumenta obligaciones sobre
   datos infantiles.
-- **Exportar archivo manual:** implica selector de documentos y flujo adulto; se
-  puede evaluar detrás del gate si las familias lo solicitan.
+- **Backup cloud:** se mantiene desactivado; el manifest usa
+  `android:allowBackup="false"`.

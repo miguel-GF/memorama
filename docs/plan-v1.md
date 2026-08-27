@@ -31,10 +31,10 @@ pero no debe fingir que sustitutos temporales son una versión publicable.
 | UI | Tokens y movimiento reducido iniciales | Completar adaptación y validación sensorial |
 | Catálogo | 12 conceptos, emoji temporal | Añadir contrato de assets finales |
 | Audio | Ausente | Aprobar voces y hacer spike de latencia |
-| Persistencia | Ausente | Diseñar esquema/migraciones después del juego |
+| Persistencia | Progreso de niveles local | Ampliar con perfiles y migraciones |
 | Avatar | Ausente | Implementar composición animal + color + accesorio |
-| Backup | No decidido | Mantener desactivado hasta decisión de privacidad |
-| IAP | Ausente | No iniciar hasta aprobar entitlements y gate |
+| Backup | JSON manual de progreso; Auto Backup desactivado | Extender al modelo de perfiles |
+| IAP | Entitlements por producto + gate adulto; Play pendiente | Configurar y probar productos reales |
 
 ## Fase A — Toolchain reproducible
 
@@ -149,12 +149,15 @@ gracias a animal/accesorio, y sobreviven a un reinicio local.
 **Gate de salida:** reiniciar conserva identidad/progreso; datos corruptos no
 impiden abrir y nunca convierten un error en compras concedidas.
 
-## Fase G — Backup: decisión antes de código
+## Fase G — Backup local y decisión cloud
 
-**Decisión recomendada para v1:** desactivar backup cloud y mantener la promesa
-estricta de que el progreso no sale del dispositivo. Android Auto Backup puede
-copiar datos de app a la cuenta Google del adulto, lo cual contradice literalmente
-«nada sale del dispositivo», y no existe de la misma forma en Fire OS.
+**Decisión vigente para v1:** desactivar backup cloud y ofrecer JSON manual de
+progreso desde la zona adulta. Android Auto Backup puede copiar datos de app a la
+cuenta Google del adulto, lo cual contradice literalmente «nada sale del
+dispositivo», y no existe de la misma forma en Fire OS.
+
+El backup manual ya valida esquema y restaura solo progreso. Nunca restaura una
+compra; la licencia se recupera desde la cuenta de la tienda.
 
 Si producto elige backup en una versión posterior:
 
@@ -190,6 +193,11 @@ restauración sin autorización vigente.
 ## Fase I — Compras Google
 
 **Objetivo:** compras no consumibles restaurables y honestas.
+
+El servicio base y la zona adulta ya están implementados sin login propio. El
+producto `full_access_lifetime` concede todo el contenido actual y futuro; los
+productos `pack_<packId>` quedan disponibles para futuras ventas por paquete.
+La configuración de Play Console y la validación física siguen pendientes.
 
 - Cerrar primero SKU/precios; no implementar `complete_N` hasta corregir economía.
 - Modelar estados tipados: cargando, disponible, pendiente, comprado, restaurado,

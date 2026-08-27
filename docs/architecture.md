@@ -43,8 +43,19 @@ Adapta las reglas puras a mecanismos Flutter. `GameController` expone cambios co
 ### `lib/repositories`
 
 Traduce fuentes externas a modelos. `PackRepository` carga el catálogo incluido
-en el bundle. En el futuro habrá repositorios para progreso y entitlements; la UI
-no debe conocer Hive ni SDKs de tienda.
+en el bundle y `ProgressRepository` guarda el progreso local. La UI no debe
+conocer SharedPreferences ni SDKs de tienda.
+
+`ProgressRepository` guarda el progreso local mediante una interfaz pequeña. El
+servicio de compras y el backup usan gateways/cache inyectables para mantener el
+plugin y el selector de archivos fuera de las reglas del dominio.
+
+### `lib/services`
+
+`PurchaseService` adapta `in_app_purchase` a estados tipados y entitlements por
+ID. `full_access_lifetime` concede todos los paquetes; un producto
+`pack_<packId>` concede únicamente su paquete. `LocalBackupService` serializa
+progreso y nunca serializa derechos de compra.
 
 ### `lib/screens` y `lib/widgets`
 
@@ -71,7 +82,7 @@ contraste, semántica y ausencia de caminos accidentales hacia contenido adulto.
 - Nunca hay más de dos cartas en estado `revealed`.
 - Mientras se resuelve una pareja no se aceptan taps.
 - Una carta `matched` no vuelve a estar oculta.
-- La UI no otorga progreso todavía; al implementarlo, deberá ser idempotente.
+- Completar un nivel registra el progreso como una operación idempotente.
 
 ## Errores y ciclo de vida
 

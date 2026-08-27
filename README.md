@@ -7,8 +7,8 @@ dispositivo; la red se reservará para compras gestionadas por la tienda y para
 actualizaciones de la aplicación.
 
 > **Estado:** prototipo Flutter en desarrollo. La experiencia visual usa emoji
-> como arte temporal y todavía no incorpora audio, persistencia, perfiles ni
-> compras. No es una versión publicable.
+> como arte temporal y todavía no incorpora audio, perfiles ni compras reales
+> configuradas en Play. No es una versión publicable.
 
 ## Qué funciona hoy
 
@@ -19,14 +19,15 @@ actualizaciones de la aplicación.
 - Animación de volteo, parejas atenuadas y celebración bilingüe automática.
 - Máquina de fases independiente de Flutter y controller observable para la UI.
 - Bloqueo de taps rápidos/tercera carta y reintento ante errores del catálogo.
+- Progreso de niveles local, respaldo JSON desde zona adulta y compra única preparada sin login propio.
 - Tokens visuales semánticos y alternativa inicial de movimiento reducido.
 - Pruebas de reglas, taps, dispose durante comparación, navegación y catálogo.
 
 ## Qué no funciona todavía
 
 - Audio e imágenes finales.
-- Guardado de progreso, estrellas, avatares y perfiles.
-- Gate parental, zona de adultos y compras dentro de la app.
+- Perfiles, estrellas y avatares.
+- Productos por paquete y configuración/validación real en Google Play.
 - Proyecto Android generado por el bootstrap; falta validar ejecución en un
   dispositivo Android.
 - Flavors Google/Amazon, firma release y configuración de tiendas.

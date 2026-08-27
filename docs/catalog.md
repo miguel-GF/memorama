@@ -41,6 +41,15 @@ versión de la app.
 El paquete Granja necesita al menos ocho pares para formar todos los niveles
 actuales y contiene doce para el contenido previsto.
 
+## Relación con compras
+
+Los paquetes incluidos (`included: true`) no requieren compra. Un paquete de
+contenido futuro puede asociarse al producto no consumible `pack_<packId>` sin
+poner precios ni datos de facturación en este JSON. `full_access_lifetime` abre
+todos los paquetes, incluidos los que se publiquen después. Los IDs de paquete y
+producto son permanentes aunque cambien el nombre visible o el precio en la
+tienda.
+
 ## Reglas para cambios
 
 1. No renombres IDs existentes. En el futuro serán claves de progreso, audio y
