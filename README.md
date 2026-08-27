@@ -26,8 +26,8 @@ actualizaciones de la aplicación.
 - Audio e imágenes finales.
 - Guardado de progreso, estrellas, avatares y perfiles.
 - Gate parental, zona de adultos y compras dentro de la app.
-- Proyecto Android generado, cuando el checkout se hace sin ejecutar el
-  bootstrap.
+- Proyecto Android generado por el bootstrap; falta validar ejecución en un
+  dispositivo Android.
 - Flavors Google/Amazon, firma release y configuración de tiendas.
 
 El alcance, los riesgos y la secuencia prevista se detallan en el
@@ -36,62 +36,65 @@ El alcance, los riesgos y la secuencia prevista se detallan en el
 ## Requisitos
 
 - Git.
-- Flutter instalado desde el canal `stable`.
+- FVM instalado y disponible en el `PATH`.
+- SDK Flutter administrado por FVM desde el canal `stable`.
 - Android Studio o Android SDK con las licencias aceptadas.
-- Un emulador o, preferentemente, un teléfono Android físico.
+- Un teléfono Android físico para la validación del juego.
 - Para Fire OS, un dispositivo real cuando comience la fase Amazon.
 
 El proyecto acepta Dart `>=3.4.0 <4.0.0`. Antes de fijar una versión concreta de
 Flutter para CI/release, esa versión debe pasar análisis, pruebas y una ejecución
 en los dispositivos objetivo.
 
-La versión exacta todavía está pendiente porque este entorno no contiene Flutter.
-No sustituyas ese dato por «latest»: consulta el estado y el procedimiento para
-fijarla en [`docs/toolchain.md`](docs/toolchain.md).
+La versión exacta está fijada en `.fvmrc` (`3.44.8`). No sustituyas ese dato por
+«latest»: consulta el estado y el procedimiento para cambiarla en
+[`docs/toolchain.md`](docs/toolchain.md).
 
 ## Primer arranque
 
 ```bash
 git clone <URL_DEL_REPOSITORIO>
 cd memorama
-flutter --version
-flutter doctor -v
+fvm --version
 ./tool/bootstrap_flutter.sh
-flutter run
+fvm flutter --version
+fvm flutter doctor -v
+fvm flutter run
 ```
 
 `bootstrap_flutter.sh` hace lo siguiente:
 
-1. comprueba que Flutter exista;
-2. opcionalmente actualiza el canal estable;
+1. comprueba que FVM y `.fvmrc` existan;
+2. instala y activa la versión exacta declarada en `.fvmrc`;
 3. genera el proyecto Android si falta;
 4. registra localmente la versión efectiva en `.tool-versions.local`;
-5. descarga dependencias y ejecuta todos los checks disponibles.
+5. descarga dependencias y ejecuta todos los checks disponibles mediante FVM.
 
-Por defecto **no actualiza Flutter automáticamente**. Para solicitar una
-actualización consciente al último estable disponible:
+La versión del SDK queda fijada en `.fvmrc`; para actualizarla conscientemente,
+cambia ese archivo y ejecuta `fvm install` y `fvm use` con la nueva versión.
 
 ```bash
-UPDATE_FLUTTER=1 ./tool/bootstrap_flutter.sh
+fvm install 3.44.8
+fvm use 3.44.8
 ```
 
-Revisa el diff después de `flutter create` o de una actualización del SDK. Los
+Revisa el diff después de `fvm flutter create` o de una actualización del SDK. Los
 archivos generados de plataforma sí deben versionarse una vez creados y validados.
 
 ## Comandos de desarrollo
 
 ```bash
 # Formato
-dart format lib test
+fvm dart format lib test
 
 # Verificación completa
 ./tool/check.sh
 
 # Ejecución
-flutter run
+fvm flutter run
 
 # Una prueba concreta
-flutter test test/models/game_state_test.dart
+fvm flutter test test/models/game_state_test.dart
 ```
 
 ## Estructura
@@ -124,8 +127,8 @@ Consulta el [contrato del catálogo](docs/catalog.md) antes de editarlo.
 Todo cambio debe, como mínimo:
 
 1. quedar formateado;
-2. pasar `flutter analyze`;
-3. pasar `flutter test`;
+2. pasar `fvm flutter analyze`;
+3. pasar `fvm flutter test`;
 4. agregar o actualizar pruebas si modifica comportamiento;
 5. mantener el juego utilizable sin red;
 6. no agregar telemetría, anuncios, cuentas o permisos sensibles;

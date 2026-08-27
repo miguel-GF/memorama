@@ -7,7 +7,7 @@ Estas instrucciones abarcan todo el repositorio.
 1. Lee `README.md`, `docs/README.md`, `docs/architecture.md` y `docs/plan-v1.md`.
 2. Revisa `git status` y no sobrescribas cambios ajenos sin confirmar su origen.
 3. Lee `pubspec.yaml` y los tests relacionados con el área que modificarás.
-4. No asumas que Flutter está instalado. Compruébalo con `flutter --version`.
+4. No asumas que Flutter está instalado. Compruébalo con `fvm flutter --version`.
 5. Para UI/avatar/almacenamiento, lee respectivamente `docs/design-system.md`,
    `docs/avatar-system.md` y `docs/offline-and-backup.md` antes de diseñar.
 
@@ -25,7 +25,7 @@ Estas instrucciones abarcan todo el repositorio.
 
 ## Convenciones de código
 
-- Formatea con `dart format` y obedece `analysis_options.yaml`.
+- Formatea con `fvm dart format` y obedece `analysis_options.yaml`.
 - Mantén las reglas en `lib/models/` libres de navegación, widgets, plugins,
   almacenamiento y rutas de assets.
 - Accede a datos mediante repositorios; una pantalla no debe decodificar JSON ni
@@ -49,9 +49,9 @@ Ejecuta:
 ./tool/check.sh
 ```
 
-Si Flutter no está disponible, ejecuta los checks independientes posibles
+Si FVM/Flutter no está disponible, ejecuta los checks independientes posibles
 (`git diff --check`, `bash -n`, validación JSON), explica la limitación y **no
-digas que `flutter analyze` o `flutter test` pasaron**.
+digas que `fvm flutter analyze` o `fvm flutter test` pasaron**.
 
 Agrega pruebas cuando cambies:
 

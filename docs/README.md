@@ -41,7 +41,7 @@ no elijas silenciosamente el texto que facilite el cambio.
 | Perfiles/progreso | Pendiente |
 | Gate parental/IAP | Pendiente |
 | Backup | Desactivado recomendado para v1; decisión pendiente |
-| Android generado | Lo genera el bootstrap si falta |
+| Android generado | Generado; falta validar en un dispositivo Android |
 | Amazon | Fuera del alcance actual |
 
 ## Decisiones pendientes

@@ -25,8 +25,8 @@ pero no debe fingir que sustitutos temporales son una versión publicable.
 
 | Área | Estado | Próximo paso |
 |---|---|---|
-| Flutter/Dart | Estructura creada; SDK no disponible en este entorno | Fijar versión tras ejecutar bootstrap |
-| Android | Directorio no generado | Ejecutar bootstrap con SDK oficial |
+| Flutter/Dart | FVM fijado en 3.44.8; checks locales aprobados | Mantener `.fvmrc` y fijar CI |
+| Android | Generado con `com.memogranja.memo_granja` | Validar ejecución en dispositivo |
 | Dominio | Motor Dart puro y controller observable | Probar ciclo de vida en dispositivo |
 | UI | Tokens y movimiento reducido iniciales | Completar adaptación y validación sensorial |
 | Catálogo | 12 conceptos, emoji temporal | Añadir contrato de assets finales |
@@ -41,11 +41,11 @@ pero no debe fingir que sustitutos temporales son una versión publicable.
 **Objetivo:** poder compilar y verificar el mismo checkout en otra máquina.
 
 - Ejecutar `./tool/bootstrap_flutter.sh` en una máquina con Flutter oficial.
-- Confirmar `flutter doctor -v`, Android SDK y dispositivo físico.
+- Confirmar `fvm flutter doctor -v`, Android SDK y dispositivo físico.
 - Registrar Flutter, Dart, Java, Gradle y Android compile/target SDK reales en
   `docs/toolchain.md`.
 - Versionar `android/`, `.metadata` y `pubspec.lock` generados y revisados.
-- Fijar Flutter en CI/FVM/mise solo después de que los checks pasen.
+- Fijar Flutter en CI/FVM/mise después de que los checks pasen.
 - Ejecutar `./tool/check.sh` y una partida manual.
 
 **Gate de salida:** un checkout limpio puede producir y ejecutar un APK debug con
@@ -66,7 +66,7 @@ comandos documentados. No se acepta una versión «más reciente» sin número.
   recompensa idempotente.
 - Hacer que un error de catálogo permita reintentar y no muestre detalles técnicos.
 
-**Gate de salida:** `flutter analyze` y `flutter test` pasan; en dispositivo no se
+**Gate de salida:** `fvm flutter analyze` y `fvm flutter test` pasan; en dispositivo no se
 puede revelar una tercera carta ni duplicar un final.
 
 ## Fase C — Sistema visual y sensorial
@@ -235,8 +235,8 @@ observación infantil en nombre del propietario.
 
 ## Próximas cinco tareas concretas
 
-1. Ejecutar bootstrap fuera de este contenedor y fijar toolchain real.
-2. Separar motor Dart puro de `ChangeNotifier` y ampliar tests.
-3. Crear `AppTheme`/tokens conforme al sistema visual.
-4. Implementar layout responsivo y opción de movimiento reducido.
-5. Preparar el contrato de assets/audio y un prototipo de avatar por capas.
+1. Ejecutar el APK debug en un teléfono Android físico y cerrar el gate A.
+2. Añadir pruebas widget de doble tap, dispose durante delay y navegación.
+3. Hacer recuperable el error de catálogo con una acción de reintento.
+4. Completar la validación sensorial en teléfono pequeño, tableta y escalado.
+5. Preparar el contrato de assets/audio sin sustituir los placeholders licenciados.

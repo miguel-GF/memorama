@@ -36,7 +36,7 @@ ruta crítica; debe manejarse como rango objetivo, no como fecha comprometida.
 - Añadir una hoja de procedencia/licencia para cada imagen, voz, música y fuente.
 - Definir presupuesto de peso, volumen normalizado, formato y silencio al inicio
   y final de cada audio.
-- El hito debe incluir `flutter analyze` y `flutter test`, no solo «hola mundo».
+- El hito debe incluir `fvm flutter analyze` y `fvm flutter test`, no solo «hola mundo».
 
 ### Fases 1 y 2
 
