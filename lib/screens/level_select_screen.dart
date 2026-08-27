@@ -70,6 +70,7 @@ class _LevelSelectScreenState extends State<LevelSelectScreen> {
                         Navigator.of(context).push(
                           MaterialPageRoute<void>(
                             builder: (_) => GameScreen(
+                              packId: farmPack.id,
                               pairs: farmPack.pairs.take(pairCount).toList(),
                             ),
                           ),

@@ -6,13 +6,22 @@ import 'package:memo_granja/app/app_theme.dart';
 import 'package:memo_granja/controllers/game_controller.dart';
 import 'package:memo_granja/models/card_pair.dart';
 import 'package:memo_granja/models/game_state.dart';
+import 'package:memo_granja/repositories/progress_repository.dart';
 import 'package:memo_granja/screens/celebration_overlay.dart';
 import 'package:memo_granja/widgets/memory_card_tile.dart';
 
 class GameScreen extends StatefulWidget {
-  const GameScreen({required this.pairs, this.random, super.key});
+  const GameScreen({
+    required this.pairs,
+    this.packId = 'farm',
+    this.progressRepository,
+    this.random,
+    super.key,
+  });
 
   final List<CardPair> pairs;
+  final String packId;
+  final ProgressRepository? progressRepository;
   final Random? random;
 
   @override
@@ -21,10 +30,12 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> {
   late final GameController _game;
+  late final ProgressRepository _progressRepository;
 
   @override
   void initState() {
     super.initState();
+    _progressRepository = widget.progressRepository ?? ProgressRepository();
     _game = GameController(pairs: widget.pairs, random: widget.random)
       ..addListener(_refresh);
   }
@@ -69,6 +80,11 @@ class _GameScreenState extends State<GameScreen> {
     }
     if (!mounted) return;
     if (_game.isComplete) {
+      await _progressRepository.markLevelCompleted(
+        packId: widget.packId,
+        pairCount: widget.pairs.length,
+      );
+      if (!mounted) return;
       await showDialog<void>(
         context: context,
         barrierDismissible: false,
